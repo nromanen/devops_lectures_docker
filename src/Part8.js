@@ -472,7 +472,7 @@ const Presentation = () => {
               <div className="bg-white p-4 rounded shadow">
                 <p className="font-bold text-gray-800 mb-2">Message Queue (RabbitMQ/Kafka)</p>
                 <div className="bg-gray-900 text-green-400 p-2 rounded font-mono text-xs">
-                  <p>// Order service публікує event</p>
+                  <p>{'// Order service публікує event'}</p>
                   <p>queue.publish('order.created', orderData)</p>
                 </div>
               </div>
