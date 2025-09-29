@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, FileText, Layers, Copy, Code, Settings, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, FileText, Layers, Copy, Code } from 'lucide-react';
 
 const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

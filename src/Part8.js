@@ -464,7 +464,7 @@ const Presentation = () => {
               <div className="bg-white p-4 rounded shadow">
                 <p className="font-bold text-gray-800 mb-2">REST API (HTTP)</p>
                 <div className="bg-gray-900 text-green-400 p-2 rounded font-mono text-xs">
-                  <p>// З auth-service викликати user-service</p>
+                  <p>{'// З auth-service викликати user-service'}</p>
                   <p>fetch('http://user-service:3000/users/123')</p>
                 </div>
               </div>
