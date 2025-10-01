@@ -126,7 +126,7 @@ const Presentation = () => {
               <h3 className="text-xl font-bold text-blue-800 text-center mb-3">Docker Client</h3>
               <p className="text-gray-700 text-center">Інтерфейс для користувача. Через нього ви віддаєте команди</p>
               <div className="mt-4 bg-white p-3 rounded text-sm font-mono text-center">
-                docker run<br/>docker build<br/>docker push
+                docker run<br />docker build<br />docker push
               </div>
             </div>
 
@@ -175,7 +175,7 @@ const Presentation = () => {
           <div className="bg-blue-50 p-8 rounded-lg border-2 border-blue-300">
             <h3 className="text-2xl font-bold text-blue-800 mb-4">Що таке Docker Image?</h3>
             <p className="text-lg text-gray-800 leading-relaxed">
-              <strong>Docker Image</strong> — це read-only шаблон, який містить інструкції для створення контейнера. 
+              <strong>Docker Image</strong> — це read-only шаблон, який містить інструкції для створення контейнера.
               Образ включає все необхідне: код, бібліотеки, залежності, конфігурацію.
             </p>
           </div>
@@ -228,7 +228,7 @@ const Presentation = () => {
           <div className="bg-green-50 p-8 rounded-lg border-2 border-green-300">
             <h3 className="text-2xl font-bold text-green-800 mb-4">Що таке Docker Container?</h3>
             <p className="text-lg text-gray-800 leading-relaxed">
-              <strong>Docker Container</strong> — це запущений екземпляр образу. Це ізольоване середовище, 
+              <strong>Docker Container</strong> — це запущений екземпляр образу. Це ізольоване середовище,
               в якому працює ваш додаток. Контейнер можна запустити, зупинити, видалити. Контейнер — це образ + один додатковий шар зверху (writable).
             </p>
           </div>
@@ -262,6 +262,13 @@ const Presentation = () => {
                   Stopped
                 </div>
                 <p className="text-sm text-gray-600">Зупинений</p>
+              </div>
+              <div className="text-3xl text-gray-400">→</div>
+              <div className="text-center">
+                <div className="bg-gray-700 text-white w-32 h-32 rounded-full flex items-center justify-center font-bold text-lg mb-2">
+                  Deleted
+                </div>
+                <p className="text-sm text-gray-600">Видалений</p>
               </div>
             </div>
           </div>
@@ -303,7 +310,7 @@ const Presentation = () => {
           <div className="bg-yellow-50 p-8 rounded-lg border-2 border-yellow-400">
             <h3 className="text-2xl font-bold text-yellow-800 mb-4">Проблема контейнерів</h3>
             <p className="text-lg text-gray-800 leading-relaxed">
-              Контейнери за замовчуванням <strong>ephemeral</strong> (тимчасові) — коли контейнер видаляється, 
+              Контейнери за замовчуванням <strong>ephemeral</strong> (тимчасові) — коли контейнер видаляється,
               всі дані в ньому теж втрачаються! 😱
             </p>
           </div>
@@ -378,7 +385,7 @@ const Presentation = () => {
           <div className="bg-indigo-50 p-8 rounded-lg border-2 border-indigo-300">
             <h3 className="text-2xl font-bold text-indigo-800 mb-4">Docker Networks</h3>
             <p className="text-lg text-gray-800 leading-relaxed">
-              Docker автоматично створює віртуальні мережі для зв'язку між контейнерами. 
+              Docker автоматично створює віртуальні мережі для зв'язку між контейнерами.
               Контейнери в одній мережі можуть спілкуватися за іменами!
             </p>
           </div>
@@ -457,133 +464,133 @@ const Presentation = () => {
       )
     },
     {
-  title: "Docker Networks: Детальніше",
-  subtitle: "Типи мереж та їх конфігурація",
-  content: (
-    <div className="space-y-6">
-      <div className="grid grid-cols-3 gap-4">
-        <div className="bg-blue-50 p-5 rounded-lg border-2 border-blue-300">
-          <h4 className="font-bold text-blue-800 mb-3 text-center">Bridge (Default)</h4>
-          <div className="space-y-2 text-sm">
-            <p className="text-gray-700">• Віртуальна мережа на хості</p>
-            <p className="text-gray-700">• IP: 172.17.0.x</p>
-            <p className="text-gray-700">• Потребує перенаправлення (mapping) портів</p>
-          </div>
-          <div className="mt-3 bg-white p-2 rounded text-xs font-mono">
-            docker run --network bridge myapp
-          </div>
-        </div>
+      title: "Docker Networks: Детальніше",
+      subtitle: "Типи мереж та їх конфігурація",
+      content: (
+        <div className="space-y-6">
+          <div className="grid grid-cols-3 gap-4">
+            <div className="bg-blue-50 p-5 rounded-lg border-2 border-blue-300">
+              <h4 className="font-bold text-blue-800 mb-3 text-center">Bridge (Default)</h4>
+              <div className="space-y-2 text-sm">
+                <p className="text-gray-700">• Віртуальна мережа на хості</p>
+                <p className="text-gray-700">• IP: 172.17.0.x</p>
+                <p className="text-gray-700">• Потребує перенаправлення (mapping) портів</p>
+              </div>
+              <div className="mt-3 bg-white p-2 rounded text-xs font-mono">
+                docker run --network bridge myapp
+              </div>
+            </div>
 
-        <div className="bg-green-50 p-5 rounded-lg border-2 border-green-300">
-          <h4 className="font-bold text-green-800 mb-3 text-center">Host</h4>
-          <div className="space-y-2 text-sm">
-            <p className="text-gray-700">• Спільна мережа з хостом</p>
-            <p className="text-gray-700">• Немає ізоляції портів</p>
-            <p className="text-gray-700">• Максимальна швидкість</p>
-          </div>
-          <div className="mt-3 bg-white p-2 rounded text-xs font-mono">
-            docker run --network host myapp
-          </div>
-        </div>
+            <div className="bg-green-50 p-5 rounded-lg border-2 border-green-300">
+              <h4 className="font-bold text-green-800 mb-3 text-center">Host</h4>
+              <div className="space-y-2 text-sm">
+                <p className="text-gray-700">• Спільна мережа з хостом</p>
+                <p className="text-gray-700">• Немає ізоляції портів</p>
+                <p className="text-gray-700">• Максимальна швидкість</p>
+              </div>
+              <div className="mt-3 bg-white p-2 rounded text-xs font-mono">
+                docker run --network host myapp
+              </div>
+            </div>
 
-        <div className="bg-purple-50 p-5 rounded-lg border-2 border-purple-300">
-          <h4 className="font-bold text-purple-800 mb-3 text-center">None</h4>
-          <div className="space-y-2 text-sm">
-            <p className="text-gray-700">• Без мережі взагалі</p>
-            <p className="text-gray-700">• Повна ізоляція</p>
-            <p className="text-gray-700">• Тільки localhost</p>
+            <div className="bg-purple-50 p-5 rounded-lg border-2 border-purple-300">
+              <h4 className="font-bold text-purple-800 mb-3 text-center">None</h4>
+              <div className="space-y-2 text-sm">
+                <p className="text-gray-700">• Без мережі взагалі</p>
+                <p className="text-gray-700">• Повна ізоляція</p>
+                <p className="text-gray-700">• Тільки localhost</p>
+              </div>
+              <div className="mt-3 bg-white p-2 rounded text-xs font-mono">
+                docker run --network none myapp
+              </div>
+            </div>
           </div>
-          <div className="mt-3 bg-white p-2 rounded text-xs font-mono">
-            docker run --network none myapp
-          </div>
-        </div>
-      </div>
 
-      <div className="bg-orange-50 p-6 rounded-lg border-2 border-orange-300">
-        <h4 className="font-bold text-orange-800 mb-4 text-lg">Custom Bridge Network (Рекомендовано!)</h4>
-        <div className="grid grid-cols-2 gap-6">
-          <div className="space-y-3">
-            <p className="text-sm text-gray-700 font-semibold">Переваги:</p>
-            <ul className="text-sm text-gray-700 space-y-1">
-              <li>✅ Автоматичний DNS за іменами</li>
-              <li>✅ Краща ізоляція</li>
-              <li>✅ Динамічне підключення</li>
-              <li>✅ Власна конфігурація підмережі</li>
-            </ul>
+          <div className="bg-orange-50 p-6 rounded-lg border-2 border-orange-300">
+            <h4 className="font-bold text-orange-800 mb-4 text-lg">Custom Bridge Network (Рекомендовано!)</h4>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="space-y-3">
+                <p className="text-sm text-gray-700 font-semibold">Переваги:</p>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li>✅ Автоматичний DNS за іменами</li>
+                  <li>✅ Краща ізоляція</li>
+                  <li>✅ Динамічне підключення</li>
+                  <li>✅ Власна конфігурація підмережі</li>
+                </ul>
+              </div>
+              <div className="bg-white p-4 rounded-lg space-y-2">
+                <p className="text-xs font-semibold text-gray-600 mb-2">Створення та використання:</p>
+                <div className="space-y-1 text-xs font-mono bg-gray-50 p-2 rounded">
+                  <p className="text-green-600"># Створити мережу</p>
+                  <p>docker network create my-net</p>
+                  <p className="text-green-600 mt-2"># Запустити контейнер</p>
+                  <p>docker run --network my-net web</p>
+                  <p className="text-green-600 mt-2"># Підключити існуючий</p>
+                  <p>docker network connect my-net db</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="bg-white p-4 rounded-lg space-y-2">
-            <p className="text-xs font-semibold text-gray-600 mb-2">Створення та використання:</p>
-            <div className="space-y-1 text-xs font-mono bg-gray-50 p-2 rounded">
-              <p className="text-green-600"># Створити мережу</p>
-              <p>docker network create my-net</p>
-              <p className="text-green-600 mt-2"># Запустити контейнер</p>
-              <p>docker run --network my-net web</p>
-              <p className="text-green-600 mt-2"># Підключити існуючий</p>
-              <p>docker network connect my-net db</p>
+
+          <div className="bg-white p-6 rounded-lg shadow-md border-2 border-gray-300">
+            <h4 className="font-bold text-gray-800 mb-4 text-center text-lg">Конфігурація Custom Network</h4>
+            <div className="bg-gray-50 p-4 rounded-lg font-mono text-xs space-y-2">
+              <p className="text-green-600"># Базова мережа</p>
+              <p>docker network create my-network</p>
+
+              <p className="text-green-600 mt-3"># З власною підмережею</p>
+              <p>docker network create --subnet=192.168.10.0/24 my-network</p>
+
+              <p className="text-green-600 mt-3"># З gateway</p>
+              <p>docker network create --subnet=192.168.10.0/24 \</p>
+              <p className="ml-4">--gateway=192.168.10.1 my-network</p>
+
+              <p className="text-green-600 mt-3"># З IP діапазоном</p>
+              <p>docker network create --subnet=192.168.10.0/24 \</p>
+              <p className="ml-4">--ip-range=192.168.10.128/25 my-network</p>
+
+              <p className="text-green-600 mt-3"># З драйвером</p>
+              <p>docker network create --driver bridge my-network</p>
+            </div>
+          </div>
+
+          <div className="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500">
+            <h4 className="font-bold text-indigo-800 mb-3">Приклад: Статичний IP</h4>
+            <div className="bg-white p-3 rounded font-mono text-xs space-y-1">
+              <p>docker network create --subnet=172.20.0.0/16 mynet</p>
+              <p className="mt-2">docker run --network mynet --ip 172.20.0.5 nginx</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4 mt-4">
+            <div className="bg-blue-50 p-3 rounded border-l-4 border-blue-500 text-sm">
+              <p className="font-bold text-blue-800">Перенаправлення портів</p>
+              <p className="font-mono text-xs mt-2">-p 8080:80</p>
+              <p className="text-xs text-gray-600">хост:контейнер</p>
+            </div>
+            <div className="bg-green-50 p-3 rounded border-l-4 border-green-500 text-sm">
+              <p className="font-bold text-green-800">Всі порти</p>
+              <p className="font-mono text-xs mt-2">-P</p>
+              <p className="text-xs text-gray-600">автомат. перенаправлення</p>
+            </div>
+            <div className="bg-purple-50 p-3 rounded border-l-4 border-purple-500 text-sm">
+              <p className="font-bold text-purple-800">Hostname</p>
+              <p className="font-mono text-xs mt-2">--hostname myapp</p>
+              <p className="text-xs text-gray-600">DNS ім'я</p>
+            </div>
+          </div>
+          <div className="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-500 mt-4">
+            <h4 className="font-bold text-yellow-800 mb-3 text-lg">⚠️ Важливо знати:</h4>
+            <div className="space-y-2 text-sm text-gray-800">
+              <p>✅ <strong>DNS працює тільки в custom bridge</strong> мережах, не в дефолтній bridge</p>
+              <p>✅ Контейнери в <strong>різних мережах не бачать один одного</strong> (ізоляція)</p>
+              <p>✅ Один контейнер може бути в <strong>кількох мережах одночасно</strong></p>
+              <p>✅ Docker автоматично керує <strong>iptables</strong> для перенаправлення портів</p>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="bg-white p-6 rounded-lg shadow-md border-2 border-gray-300">
-        <h4 className="font-bold text-gray-800 mb-4 text-center text-lg">Конфігурація Custom Network</h4>
-        <div className="bg-gray-50 p-4 rounded-lg font-mono text-xs space-y-2">
-          <p className="text-green-600"># Базова мережа</p>
-          <p>docker network create my-network</p>
-          
-          <p className="text-green-600 mt-3"># З власною підмережею</p>
-          <p>docker network create --subnet=192.168.10.0/24 my-network</p>
-          
-          <p className="text-green-600 mt-3"># З gateway</p>
-          <p>docker network create --subnet=192.168.10.0/24 \</p>
-          <p className="ml-4">--gateway=192.168.10.1 my-network</p>
-          
-          <p className="text-green-600 mt-3"># З IP діапазоном</p>
-          <p>docker network create --subnet=192.168.10.0/24 \</p>
-          <p className="ml-4">--ip-range=192.168.10.128/25 my-network</p>
-          
-          <p className="text-green-600 mt-3"># З драйвером</p>
-          <p>docker network create --driver bridge my-network</p>
-        </div>
-      </div>
-
-      <div className="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500">
-        <h4 className="font-bold text-indigo-800 mb-3">Приклад: Статичний IP</h4>
-        <div className="bg-white p-3 rounded font-mono text-xs space-y-1">
-          <p>docker network create --subnet=172.20.0.0/16 mynet</p>
-          <p className="mt-2">docker run --network mynet --ip 172.20.0.5 nginx</p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-3 gap-4 mt-4">
-        <div className="bg-blue-50 p-3 rounded border-l-4 border-blue-500 text-sm">
-          <p className="font-bold text-blue-800">Перенаправлення портів</p>
-          <p className="font-mono text-xs mt-2">-p 8080:80</p>
-          <p className="text-xs text-gray-600">хост:контейнер</p>
-        </div>
-        <div className="bg-green-50 p-3 rounded border-l-4 border-green-500 text-sm">
-          <p className="font-bold text-green-800">Всі порти</p>
-          <p className="font-mono text-xs mt-2">-P</p>
-          <p className="text-xs text-gray-600">автомат. перенаправлення</p>
-        </div>
-        <div className="bg-purple-50 p-3 rounded border-l-4 border-purple-500 text-sm">
-          <p className="font-bold text-purple-800">Hostname</p>
-          <p className="font-mono text-xs mt-2">--hostname myapp</p>
-          <p className="text-xs text-gray-600">DNS ім'я</p>
-        </div>
-      </div>
-      <div className="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-500 mt-4">
-  <h4 className="font-bold text-yellow-800 mb-3 text-lg">⚠️ Важливо знати:</h4>
-  <div className="space-y-2 text-sm text-gray-800">
-    <p>✅ <strong>DNS працює тільки в custom bridge</strong> мережах, не в дефолтній bridge</p>
-    <p>✅ Контейнери в <strong>різних мережах не бачать один одного</strong> (ізоляція)</p>
-    <p>✅ Один контейнер може бути в <strong>кількох мережах одночасно</strong></p>
-    <p>✅ Docker автоматично керує <strong>iptables</strong> для перенаправлення портів</p>
-  </div>
-</div>
-    </div>
-  )
-}
+      )
+    }
   ];
 
   const nextSlide = () => {
@@ -629,9 +636,8 @@ const Presentation = () => {
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition ${
-                    currentSlide === index ? 'bg-blue-600 w-8' : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
+                  className={`w-3 h-3 rounded-full transition ${currentSlide === index ? 'bg-blue-600 w-8' : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
                 />
               ))}
             </div>

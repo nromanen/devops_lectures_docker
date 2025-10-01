@@ -118,6 +118,63 @@ const Presentation = () => {
             </div>
           </div>
 
+          <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-300">
+            <h4 className="text-xl font-bold text-gray-800 mb-4">Основні Container Registry</h4>
+            <p className="text-gray-600 mb-4">Docker може завантажувати образи з різних registry</p>
+
+            <div className="space-y-3">
+              <div className="border-l-4 border-blue-500 pl-4 py-2">
+                <p className="font-bold text-gray-800 mb-1">Docker Hub (за замовчуванням)</p>
+                <div className="bg-gray-900 text-white p-3 rounded font-mono text-sm">
+                  docker run nginx
+                  <span className="text-gray-500 block text-xs mt-1"># Повний запис: docker.io/library/nginx:latest</span>
+                </div>
+              </div>
+
+              <div className="border-l-4 border-purple-500 pl-4 py-2">
+                <p className="font-bold text-gray-800 mb-1">GitHub Container Registry</p>
+                <div className="bg-gray-900 text-white p-3 rounded font-mono text-sm">
+                  docker run ghcr.io/username/myapp:latest
+                </div>
+              </div>
+
+              <div className="border-l-4 border-red-500 pl-4 py-2">
+                <p className="font-bold text-gray-800 mb-1">Quay.io (Red Hat)</p>
+                <div className="bg-gray-900 text-white p-3 rounded font-mono text-sm">
+                  docker run quay.io/prometheus/prometheus
+                </div>
+              </div>
+
+              <div className="border-l-4 border-orange-500 pl-4 py-2">
+                <p className="font-bold text-gray-800 mb-1">Amazon ECR</p>
+                <div className="bg-gray-900 text-white p-3 rounded font-mono text-sm">
+                  docker run 123456789.dkr.ecr.us-east-1.amazonaws.com/myapp:v1.0
+                </div>
+              </div>
+
+              <div className="border-l-4 border-blue-600 pl-4 py-2">
+                <p className="font-bold text-gray-800 mb-1">Google Container Registry</p>
+                <div className="bg-gray-900 text-white p-3 rounded font-mono text-sm">
+                  docker run gcr.io/project-id/myapp:latest
+                </div>
+              </div>
+
+              <div className="border-l-4 border-indigo-500 pl-4 py-2">
+                <p className="font-bold text-gray-800 mb-1">Azure Container Registry</p>
+                <div className="bg-gray-900 text-white p-3 rounded font-mono text-sm">
+                  docker run myregistry.azurecr.io/myapp:v2.0
+                </div>
+              </div>
+
+              <div className="border-l-4 border-gray-500 pl-4 py-2">
+                <p className="font-bold text-gray-800 mb-1">Приватний Registry</p>
+                <div className="bg-gray-900 text-white p-3 rounded font-mono text-sm">
+                  docker run registry.company.com:5000/internal-app:latest
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-300">
             <h4 className="text-xl font-bold text-blue-800 mb-4">Основні опції</h4>
             <div className="grid grid-cols-2 gap-4">
@@ -200,6 +257,28 @@ const Presentation = () => {
               <p className="ml-4">nginx:alpine</p>
             </div>
             <p className="text-sm text-gray-600 mt-3">Запускає nginx у фоні, на порту 8080, з volume для HTML та автоперезапуском</p>
+          </div>
+
+          <div className="bg-yellow-50 p-6 rounded-lg border-2 border-yellow-300">
+            <h4 className="text-lg font-bold text-yellow-800 mb-4">💡 Корисні поради</h4>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start">
+                <span className="text-yellow-600 mr-2">•</span>
+                <span>Використовуйте <code className="bg-gray-200 px-2 py-1 rounded">--rm</code> для тимчасових контейнерів</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-600 mr-2">•</span>
+                <span>Завжди вказуйте <code className="bg-gray-200 px-2 py-1 rounded">--name</code> для легкого управління</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-600 mr-2">•</span>
+                <span>Для production використовуйте конкретні версії, не <code className="bg-gray-200 px-2 py-1 rounded">:latest</code></span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-yellow-600 mr-2">•</span>
+                <span>Комбінуйте <code className="bg-gray-200 px-2 py-1 rounded">-it</code> для інтерактивної роботи з shell</span>
+              </li>
+            </ul>
           </div>
         </div>
       )

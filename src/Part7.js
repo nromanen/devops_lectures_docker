@@ -52,30 +52,215 @@ const Presentation = () => {
             </div>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg border-2 border-green-300">
-            <h4 className="text-xl font-bold text-green-800 mb-4">✅ Рішення: Docker Compose</h4>
-            <p className="text-gray-800 mb-4">
-              Всі налаштування в одному YAML файлі:
-            </p>
-            <div className="bg-gray-900 text-green-400 p-4 rounded font-mono text-xs space-y-1">
-              <p className="text-yellow-300"># docker-compose.yml</p>
-              <p>services:</p>
-              <p className="ml-2">db:</p>
-              <p className="ml-4">image: postgres:15</p>
-              <p className="ml-2">redis:</p>
-              <p className="ml-4">image: redis:alpine</p>
-              <p className="ml-2">web:</p>
-              <p className="ml-4">image: myapp:latest</p>
-              <p className="ml-4">ports:</p>
-              <p className="ml-6">- "3000:3000"</p>
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+      <div className="max-w-5xl mx-auto space-y-6">
+        {/* Header */}
+        <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-600">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            🐳 Docker → Docker Compose
+          </h1>
+          <p className="text-gray-600">Міграція з окремих команд до одного YAML файлу</p>
+        </div>
+
+        {/* Docker Commands */}
+        <div className="bg-red-50 p-6 rounded-lg border-2 border-red-300 shadow-md">
+          <h3 className="text-xl font-bold text-red-800 mb-4">❌ Було: Багато команд Docker</h3>
+          <div className="bg-gray-900 text-gray-100 p-4 rounded font-mono text-sm space-y-2">
+            <p className="text-yellow-300"># Створити мережу</p>
+            <p>docker network create myapp-network</p>
+            <p className="text-yellow-300 mt-3"># Запустити базу даних</p>
+            <p>docker run -d --name db --network myapp-network \</p>
+            <p className="ml-4">-e POSTGRES_PASSWORD=secret \</p>
+            <p className="ml-4">-v pgdata:/var/lib/postgresql/data \</p>
+            <p className="ml-4">postgres:15</p>
+            <p className="text-yellow-300 mt-3"># Запустити Redis</p>
+            <p>docker run -d --name redis --network myapp-network redis:alpine</p>
+            <p className="text-yellow-300 mt-3"># Запустити веб-додаток</p>
+            <p>docker run -d --name web --network myapp-network \</p>
+            <p className="ml-4">-p 3000:3000 \</p>
+            <p className="ml-4">-e DATABASE_URL=postgresql://db:5432 \</p>
+            <p className="ml-4">myapp:latest</p>
+          </div>
+        </div>
+
+        {/* Docker Compose Solution */}
+        <div className="bg-green-50 p-6 rounded-lg border-2 border-green-300 shadow-md">
+          <h3 className="text-xl font-bold text-green-800 mb-4">✅ Стало: Docker Compose</h3>
+          <p className="text-gray-800 mb-4">
+            Всі налаштування в одному YAML файлі:
+          </p>
+          <div className="bg-gray-900 text-gray-100 p-4 rounded font-mono text-sm space-y-1 overflow-x-auto">
+            <p className="text-yellow-300"># docker-compose.yml</p>
+            <p className="text-purple-400">version: <span className="text-green-400">'3.8'</span></p>
+            <p className="mt-2"></p>
+            <p className="text-purple-400">services:</p>
+            <p className="ml-4 text-blue-400">db:</p>
+            <p className="ml-8 text-purple-400">image: <span className="text-green-400">postgres:15</span></p>
+            <p className="ml-8 text-purple-400">container_name: <span className="text-green-400">db</span></p>
+            <p className="ml-8 text-purple-400">environment:</p>
+            <p className="ml-12 text-purple-400">POSTGRES_PASSWORD: <span className="text-green-400">secret</span></p>
+            <p className="ml-8 text-purple-400">volumes:</p>
+            <p className="ml-12">- pgdata:/var/lib/postgresql/data</p>
+            <p className="ml-8 text-purple-400">networks:</p>
+            <p className="ml-12">- myapp-network</p>
+            <p className="mt-2"></p>
+            <p className="ml-4 text-blue-400">redis:</p>
+            <p className="ml-8 text-purple-400">image: <span className="text-green-400">redis:alpine</span></p>
+            <p className="ml-8 text-purple-400">container_name: <span className="text-green-400">redis</span></p>
+            <p className="ml-8 text-purple-400">networks:</p>
+            <p className="ml-12">- myapp-network</p>
+            <p className="mt-2"></p>
+            <p className="ml-4 text-blue-400">web:</p>
+            <p className="ml-8 text-purple-400">image: <span className="text-green-400">myapp:latest</span></p>
+            <p className="ml-8 text-purple-400">container_name: <span className="text-green-400">web</span></p>
+            <p className="ml-8 text-purple-400">ports:</p>
+            <p className="ml-12">- <span className="text-green-400">"3000:3000"</span></p>
+            <p className="ml-8 text-purple-400">environment:</p>
+            <p className="ml-12 text-purple-400">DATABASE_URL: <span className="text-green-400">postgresql://db:5432</span></p>
+            <p className="ml-8 text-purple-400">networks:</p>
+            <p className="ml-12">- myapp-network</p>
+            <p className="ml-8 text-purple-400">depends_on:</p>
+            <p className="ml-12">- db</p>
+            <p className="ml-12">- redis</p>
+            <p className="mt-2"></p>
+            <p className="text-purple-400">networks:</p>
+            <p className="ml-4 text-blue-400">myapp-network:</p>
+            <p className="ml-8 text-purple-400">driver: <span className="text-green-400">bridge</span></p>
+            <p className="mt-2"></p>
+            <p className="text-purple-400">volumes:</p>
+            <p className="ml-4 text-blue-400">pgdata:</p>
+          </div>
+        </div>
+
+        {/* Mapping Table */}
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h3 className="text-xl font-bold text-gray-800 mb-4">🔄 Відповідність команд</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-blue-600 text-white">
+                  <th className="border border-blue-700 px-4 py-3 text-left">Docker команда</th>
+                  <th className="border border-blue-700 px-4 py-3 text-left">Docker Compose</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                <tr className="bg-blue-50">
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">docker network create myapp-network</td>
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">networks: myapp-network:</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">-d (detached)</td>
+                  <td className="border border-gray-300 px-4 py-2">За замовчуванням в compose</td>
+                </tr>
+                <tr className="bg-blue-50">
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">--name db</td>
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">container_name: db</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">--network myapp-network</td>
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">networks: - myapp-network</td>
+                </tr>
+                <tr className="bg-blue-50">
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">-e POSTGRES_PASSWORD=secret</td>
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">environment: POSTGRES_PASSWORD: secret</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">-v pgdata:/var/lib/postgresql/data</td>
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">volumes: - pgdata:/var/lib/postgresql/data</td>
+                </tr>
+                <tr className="bg-blue-50">
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">-p 3000:3000</td>
+                  <td className="border border-gray-300 px-4 py-2 font-mono text-xs">ports: - "3000:3000"</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Commands */}
+        <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+          <h3 className="text-xl font-bold text-green-800 mb-4">🚀 Запуск одною командою</h3>
+          <div className="space-y-4">
+            <div>
+              <p className="text-sm font-semibold text-gray-700 mb-2">Запустити все:</p>
+              <div className="bg-gray-900 text-green-400 p-3 rounded font-mono text-sm">
+                docker compose up -d
+              </div>
             </div>
-            <div className="bg-white p-4 rounded mt-4 border-l-4 border-green-500">
-              <p className="text-sm font-bold text-green-800 mb-2">Запуск одною командою:</p>
-              <div className="bg-gray-900 text-green-400 p-2 rounded font-mono text-sm">
-                docker compose up
+            <div>
+              <p className="text-sm font-semibold text-gray-700 mb-2">Подивитись логи:</p>
+              <div className="bg-gray-900 text-green-400 p-3 rounded font-mono text-sm">
+                docker compose logs -f
+              </div>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-gray-700 mb-2">Зупинити все:</p>
+              <div className="bg-gray-900 text-green-400 p-3 rounded font-mono text-sm">
+                docker compose down
+              </div>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-gray-700 mb-2">Зупинити і видалити volumes:</p>
+              <div className="bg-gray-900 text-green-400 p-3 rounded font-mono text-sm">
+                docker compose down -v
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Build Example */}
+        <div className="bg-orange-50 p-6 rounded-lg border-2 border-orange-300 shadow-md">
+          <h3 className="text-xl font-bold text-orange-800 mb-4">🔨 Бонус: build - Збудувати з Dockerfile</h3>
+          <p className="text-gray-800 mb-4">
+            Замість готового image, можна збудувати власний:
+          </p>
+          <div className="bg-gray-900 text-gray-100 p-4 rounded font-mono text-sm space-y-1">
+            <p className="text-yellow-300"># docker-compose.yml</p>
+            <p className="text-purple-400">services:</p>
+            <p className="ml-4 text-blue-400">web:</p>
+            <p className="ml-8 text-purple-400">build: <span className="text-green-400">.</span> <span className="text-gray-500"># Збудувати з Dockerfile в поточній директорії</span></p>
+            <p className="ml-8 text-purple-400">ports:</p>
+            <p className="ml-12">- <span className="text-green-400">"3000:3000"</span></p>
+            <p className="mt-2"></p>
+            <p className="ml-4 text-gray-500"># АБО з налаштуваннями:</p>
+            <p className="ml-4 text-blue-400">app:</p>
+            <p className="ml-8 text-purple-400">build:</p>
+            <p className="ml-12 text-purple-400">context: <span className="text-green-400">./app</span> <span className="text-gray-500"># Де шукати Dockerfile</span></p>
+            <p className="ml-12 text-purple-400">dockerfile: <span className="text-green-400">Dockerfile.prod</span> <span className="text-gray-500"># Який Dockerfile використати</span></p>
+          </div>
+          <div className="bg-white p-4 rounded mt-4 border-l-4 border-orange-500">
+            <p className="text-sm font-bold text-orange-800 mb-2">Запуск зі збіркою:</p>
+            <div className="bg-gray-900 text-green-400 p-2 rounded font-mono text-sm">
+              docker compose up --build
+            </div>
+            <p className="text-xs text-gray-600 mt-2">Docker Compose автоматично збудує image перед запуском</p>
+          </div>
+        </div>
+
+        {/* Benefits */}
+        <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg shadow-md border-2 border-purple-300">
+          <h3 className="text-xl font-bold text-purple-800 mb-4">💡 Переваги Docker Compose</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-white p-4 rounded shadow-sm">
+              <p className="font-semibold text-purple-700 mb-1">✅ Простота</p>
+              <p className="text-sm text-gray-600">Всі налаштування в одному файлі</p>
+            </div>
+            <div className="bg-white p-4 rounded shadow-sm">
+              <p className="font-semibold text-purple-700 mb-1">✅ Версіонування</p>
+              <p className="text-sm text-gray-600">YAML файл зберігається в Git</p>
+            </div>
+            <div className="bg-white p-4 rounded shadow-sm">
+              <p className="font-semibold text-purple-700 mb-1">✅ Відтворюваність</p>
+              <p className="text-sm text-gray-600">Однакове середовище для всіх</p>
+            </div>
+            <div className="bg-white p-4 rounded shadow-sm">
+              <p className="font-semibold text-purple-700 mb-1">✅ Залежності</p>
+              <p className="text-sm text-gray-600">depends_on контролює порядок запуску</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
           <div className="grid grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-blue-500">
@@ -790,6 +975,7 @@ const Presentation = () => {
                 <div className="font-mono text-xs space-y-1">
                   <p>myproject/</p>
                   <p className="ml-2">├── docker-compose.yml</p>
+                  <p className="ml-2">├── docker-compose.prod.yml</p>
                   <p className="ml-2">├── .env</p>
                   <p className="ml-2">├── .env.production</p>
                   <p className="ml-2">└── .dockerignore</p>

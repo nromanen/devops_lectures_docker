@@ -263,21 +263,142 @@ const Presentation = () => {
             <p className="text-center text-green-100 text-lg mt-2">Завантаження образів з Docker Hub</p>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-300">
-            <h4 className="text-xl font-bold text-gray-800 mb-4">Синтаксис команди</h4>
-            <div className="bg-gray-900 text-white p-6 rounded-lg font-mono">
-              <p className="text-green-400 mb-2"># Базовий формат</p>
-              <p className="text-xl mb-4">docker pull [OPTIONS] NAME[:TAG]</p>
-              
-              <p className="text-green-400 mb-2 mt-6"># Приклади</p>
-              <div className="space-y-2 text-base">
-                <p><span className="text-blue-400">docker pull</span> nginx</p>
-                <p><span className="text-blue-400">docker pull</span> nginx:latest</p>
-                <p><span className="text-blue-400">docker pull</span> nginx:1.25-alpine</p>
-                <p><span className="text-blue-400">docker pull</span> postgres:15</p>
-              </div>
-            </div>
+          <div className="bg-gray-50 p-6 space-y-6">
+      {/* Синтаксис команди */}
+      <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-300">
+        <h4 className="text-xl font-bold text-gray-800 mb-4">Синтаксис команди</h4>
+        <div className="bg-gray-900 text-white p-6 rounded-lg font-mono">
+          <p className="text-green-400 mb-2"># Базовий формат</p>
+          <p className="text-xl mb-4">docker pull [OPTIONS] NAME[:TAG]</p>
+          <p className="text-green-400 mb-2 mt-6"># Приклади</p>
+          <div className="space-y-2 text-base">
+            <p><span className="text-blue-400">docker pull</span> nginx</p>
+            <p><span className="text-blue-400">docker pull</span> nginx:latest</p>
+            <p><span className="text-blue-400">docker pull</span> nginx:1.25-alpine</p>
+            <p><span className="text-blue-400">docker pull</span> postgres:15</p>
           </div>
+        </div>
+      </div>
+
+      {/* OPTIONS */}
+      <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-300">
+        <h4 className="text-xl font-bold text-gray-800 mb-4">Доступні OPTIONS</h4>
+        
+        <div className="space-y-6">
+          {/* Option 1 */}
+          <div className="border-l-4 border-blue-500 pl-4">
+            <h5 className="font-bold text-lg text-gray-800 mb-2">
+              <span className="bg-gray-100 px-2 py-1 rounded font-mono text-base">--all-tags</span> або 
+              <span className="bg-gray-100 px-2 py-1 rounded font-mono text-base ml-2">-a</span>
+            </h5>
+            <p className="text-gray-700 mb-3">Завантажити всі теги образу</p>
+            <div className="bg-gray-900 text-white p-4 rounded font-mono text-sm">
+              <p className="text-green-400 mb-2"># Завантажити всі версії nginx</p>
+              <p>docker pull --all-tags nginx</p>
+              <p className="text-yellow-400 mt-2"># Завантажить: latest, 1.25, alpine, stable...</p>
+            </div>
+            <p className="text-red-600 mt-2 text-sm">⚠️ Може завантажити десятки гігабайт!</p>
+          </div>
+
+          {/* Option 2 */}
+          <div className="border-l-4 border-green-500 pl-4">
+            <h5 className="font-bold text-lg text-gray-800 mb-2">
+              <span className="bg-gray-100 px-2 py-1 rounded font-mono text-base">--platform</span>
+            </h5>
+            <p className="text-gray-700 mb-3">Вказати платформу (архітектуру)</p>
+            <div className="bg-gray-900 text-white p-4 rounded font-mono text-sm">
+              <p className="text-green-400 mb-2"># Для Intel/AMD</p>
+              <p>docker pull --platform linux/amd64 nginx</p>
+              <p className="text-green-400 mt-3 mb-2"># Для ARM (Apple M1/M2, Raspberry Pi)</p>
+              <p>docker pull --platform linux/arm64 nginx</p>
+              <p className="text-green-400 mt-3 mb-2"># Для ARM 32-bit</p>
+              <p>docker pull --platform linux/arm/v7 nginx</p>
+            </div>
+            <p className="text-blue-600 mt-2 text-sm">💡 Дуже корисно на Apple Silicon (M1/M2/M3)!</p>
+          </div>
+
+          {/* Option 3 */}
+          <div className="border-l-4 border-purple-500 pl-4">
+            <h5 className="font-bold text-lg text-gray-800 mb-2">
+              <span className="bg-gray-100 px-2 py-1 rounded font-mono text-base">--quiet</span> або 
+              <span className="bg-gray-100 px-2 py-1 rounded font-mono text-base ml-2">-q</span>
+            </h5>
+            <p className="text-gray-700 mb-3">Тихий режим - показати тільки digest</p>
+            <div className="bg-gray-900 text-white p-4 rounded font-mono text-sm">
+              <p className="text-green-400 mb-2"># Без прогресу, тільки результат</p>
+              <p>docker pull -q nginx:alpine</p>
+              <p className="text-gray-400 mt-2"># Вивід: sha256:abc123...</p>
+            </div>
+            <p className="text-blue-600 mt-2 text-sm">💡 Корисно для автоматизації та скриптів</p>
+          </div>
+
+          {/* Option 4 */}
+          <div className="border-l-4 border-orange-500 pl-4">
+            <h5 className="font-bold text-lg text-gray-800 mb-2">
+              <span className="bg-gray-100 px-2 py-1 rounded font-mono text-base">--disable-content-trust</span>
+            </h5>
+            <p className="text-gray-700 mb-3">Вимкнути перевірку підпису образу</p>
+            <div className="bg-gray-900 text-white p-4 rounded font-mono text-sm">
+              <p className="text-green-400 mb-2"># Пропустити перевірку підпису</p>
+              <p>docker pull --disable-content-trust myimage:latest</p>
+            </div>
+            <p className="text-gray-600 mt-2 text-sm">Використовується рідко, в основному для приватних registry</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Практичні приклади */}
+      <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-300">
+        <h4 className="text-xl font-bold text-gray-800 mb-4">Практичні приклади</h4>
+        
+        <div className="space-y-4">
+          <div className="bg-gray-900 text-white p-4 rounded font-mono text-sm">
+            <p className="text-green-400 mb-2"># Для Apple Silicon (M1/M2)</p>
+            <p>docker pull --platform linux/amd64 mysql:8.0</p>
+          </div>
+
+          <div className="bg-gray-900 text-white p-4 rounded font-mono text-sm">
+            <p className="text-green-400 mb-2"># Тихий pull у скрипті</p>
+            <p>IMAGE_ID=$(docker pull -q nginx:alpine)</p>
+            <p>echo "Downloaded: $IMAGE_ID"</p>
+          </div>
+
+          <div className="bg-gray-900 text-white p-4 rounded font-mono text-sm">
+            <p className="text-green-400 mb-2"># Комбінація опцій</p>
+            <p>docker pull --platform linux/arm64 --quiet nginx:alpine</p>
+          </div>
+
+          <div className="bg-gray-900 text-white p-4 rounded font-mono text-sm">
+            <p className="text-green-400 mb-2"># З приватного registry</p>
+            <p>docker pull registry.example.com/myapp:v1.0</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Платформи */}
+      <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-300">
+        <h4 className="text-xl font-bold text-gray-800 mb-4">Доступні платформи</h4>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-blue-50 p-4 rounded border border-blue-200">
+            <p className="font-mono font-bold text-blue-800">linux/amd64</p>
+            <p className="text-sm text-gray-700">Intel/AMD x86_64</p>
+          </div>
+          <div className="bg-green-50 p-4 rounded border border-green-200">
+            <p className="font-mono font-bold text-green-800">linux/arm64</p>
+            <p className="text-sm text-gray-700">ARM 64-bit (M1/M2, RPi 4)</p>
+          </div>
+          <div className="bg-purple-50 p-4 rounded border border-purple-200">
+            <p className="font-mono font-bold text-purple-800">linux/arm/v7</p>
+            <p className="text-sm text-gray-700">ARM 32-bit (старі RPi)</p>
+          </div>
+          <div className="bg-yellow-50 p-4 rounded border border-yellow-200">
+            <p className="font-mono font-bold text-yellow-800">linux/386</p>
+            <p className="text-sm text-gray-700">Intel 32-bit</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
           <div className="grid grid-cols-2 gap-6">
             <div className="bg-blue-50 p-5 rounded-lg border-2 border-blue-300">

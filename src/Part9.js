@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, BookOpen, CheckCircle, Rocket, GraduationCap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, BookOpen, CheckCircle } from 'lucide-react';
 
 const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -486,218 +486,218 @@ const Presentation = () => {
         </div>
       )
     },
-    {
-      title: "Що вивчати далі?",
-      subtitle: "Наступні кроки у вашій подорожі",
-      content: (
-        <div className="space-y-6">
-          <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-8 rounded-lg">
-            <div className="flex items-center justify-center mb-6">
-              <Rocket className="w-24 h-24" />
-            </div>
-            <h3 className="text-3xl font-bold text-center mb-4">🚀 Що далі?</h3>
-            <p className="text-center text-xl">
-              Ваша подорож з контейнерами тільки починається!
-            </p>
-          </div>
+    // {
+    //   title: "Що вивчати далі?",
+    //   subtitle: "Наступні кроки у вашій подорожі",
+    //   content: (
+    //     <div className="space-y-6">
+    //       <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-8 rounded-lg">
+    //         <div className="flex items-center justify-center mb-6">
+    //           <Rocket className="w-24 h-24" />
+    //         </div>
+    //         <h3 className="text-3xl font-bold text-center mb-4">🚀 Що далі?</h3>
+    //         <p className="text-center text-xl">
+    //           Ваша подорож з контейнерами тільки починається!
+    //         </p>
+    //       </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
-              <div className="flex items-center mb-4">
-                <span className="bg-blue-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">1</span>
-                <h4 className="text-xl font-bold text-blue-800">Kubernetes</h4>
-              </div>
-              <div className="space-y-3">
-                <p className="text-gray-700 text-sm">
-                  Оркестрація контейнерів для production
-                </p>
-                <div className="bg-blue-50 p-3 rounded">
-                  <p className="font-semibold text-blue-900 mb-2">Що вивчити:</p>
-                  <ul className="text-xs text-gray-700 space-y-1">
-                    <li>• Pods, Services, Deployments</li>
-                    <li>• Автоматичне масштабування</li>
-                    <li>• Load balancing</li>
-                    <li>• Self-healing</li>
-                    <li>• Rolling updates</li>
-                  </ul>
-                </div>
-                <div className="bg-gray-100 p-2 rounded text-xs">
-                  <p className="text-gray-600">Ресурси: kubernetes.io, minikube</p>
-                </div>
-              </div>
-            </div>
+    //       <div className="grid grid-cols-2 gap-6">
+    //         <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-500">
+    //           <div className="flex items-center mb-4">
+    //             <span className="bg-blue-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">1</span>
+    //             <h4 className="text-xl font-bold text-blue-800">Kubernetes</h4>
+    //           </div>
+    //           <div className="space-y-3">
+    //             <p className="text-gray-700 text-sm">
+    //               Оркестрація контейнерів для production
+    //             </p>
+    //             <div className="bg-blue-50 p-3 rounded">
+    //               <p className="font-semibold text-blue-900 mb-2">Що вивчити:</p>
+    //               <ul className="text-xs text-gray-700 space-y-1">
+    //                 <li>• Pods, Services, Deployments</li>
+    //                 <li>• Автоматичне масштабування</li>
+    //                 <li>• Load balancing</li>
+    //                 <li>• Self-healing</li>
+    //                 <li>• Rolling updates</li>
+    //               </ul>
+    //             </div>
+    //             <div className="bg-gray-100 p-2 rounded text-xs">
+    //               <p className="text-gray-600">Ресурси: kubernetes.io, minikube</p>
+    //             </div>
+    //           </div>
+    //         </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500">
-              <div className="flex items-center mb-4">
-                <span className="bg-green-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">2</span>
-                <h4 className="text-xl font-bold text-green-800">Docker Swarm</h4>
-              </div>
-              <div className="space-y-3">
-                <p className="text-gray-700 text-sm">
-                  Вбудована оркестрація Docker
-                </p>
-                <div className="bg-green-50 p-3 rounded">
-                  <p className="font-semibold text-green-900 mb-2">Що вивчити:</p>
-                  <ul className="text-xs text-gray-700 space-y-1">
-                    <li>• Swarm mode</li>
-                    <li>• Services та stacks</li>
-                    <li>• Overlay networks</li>
-                    <li>• Secrets management</li>
-                    <li>• Rolling updates</li>
-                  </ul>
-                </div>
-                <div className="bg-gray-100 p-2 rounded text-xs">
-                  <p className="text-gray-600">Простіше за K8s, для малих проектів</p>
-                </div>
-              </div>
-            </div>
+    //         <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-green-500">
+    //           <div className="flex items-center mb-4">
+    //             <span className="bg-green-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">2</span>
+    //             <h4 className="text-xl font-bold text-green-800">Docker Swarm</h4>
+    //           </div>
+    //           <div className="space-y-3">
+    //             <p className="text-gray-700 text-sm">
+    //               Вбудована оркестрація Docker
+    //             </p>
+    //             <div className="bg-green-50 p-3 rounded">
+    //               <p className="font-semibold text-green-900 mb-2">Що вивчити:</p>
+    //               <ul className="text-xs text-gray-700 space-y-1">
+    //                 <li>• Swarm mode</li>
+    //                 <li>• Services та stacks</li>
+    //                 <li>• Overlay networks</li>
+    //                 <li>• Secrets management</li>
+    //                 <li>• Rolling updates</li>
+    //               </ul>
+    //             </div>
+    //             <div className="bg-gray-100 p-2 rounded text-xs">
+    //               <p className="text-gray-600">Простіше за K8s, для малих проектів</p>
+    //             </div>
+    //           </div>
+    //         </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-purple-500">
-              <div className="flex items-center mb-4">
-                <span className="bg-purple-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">3</span>
-                <h4 className="text-xl font-bold text-purple-800">CI/CD Поглиблено</h4>
-              </div>
-              <div className="space-y-3">
-                <p className="text-gray-700 text-sm">
-                  Автоматизація всього pipeline
-                </p>
-                <div className="bg-purple-50 p-3 rounded">
-                  <p className="font-semibold text-purple-900 mb-2">Що вивчити:</p>
-                  <ul className="text-xs text-gray-700 space-y-1">
-                    <li>• Jenkins з Docker</li>
-                    <li>• GitLab CI/CD</li>
-                    <li>• GitHub Actions</li>
-                    <li>• ArgoCD для K8s</li>
-                    <li>• Automated testing</li>
-                  </ul>
-                </div>
-                <div className="bg-gray-100 p-2 rounded text-xs">
-                  <p className="text-gray-600">Автоматизація від коду до production</p>
-                </div>
-              </div>
-            </div>
+    //         <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-purple-500">
+    //           <div className="flex items-center mb-4">
+    //             <span className="bg-purple-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">3</span>
+    //             <h4 className="text-xl font-bold text-purple-800">CI/CD Поглиблено</h4>
+    //           </div>
+    //           <div className="space-y-3">
+    //             <p className="text-gray-700 text-sm">
+    //               Автоматизація всього pipeline
+    //             </p>
+    //             <div className="bg-purple-50 p-3 rounded">
+    //               <p className="font-semibold text-purple-900 mb-2">Що вивчити:</p>
+    //               <ul className="text-xs text-gray-700 space-y-1">
+    //                 <li>• Jenkins з Docker</li>
+    //                 <li>• GitLab CI/CD</li>
+    //                 <li>• GitHub Actions</li>
+    //                 <li>• ArgoCD для K8s</li>
+    //                 <li>• Automated testing</li>
+    //               </ul>
+    //             </div>
+    //             <div className="bg-gray-100 p-2 rounded text-xs">
+    //               <p className="text-gray-600">Автоматизація від коду до production</p>
+    //             </div>
+    //           </div>
+    //         </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
-              <div className="flex items-center mb-4">
-                <span className="bg-orange-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">4</span>
-                <h4 className="text-xl font-bold text-orange-800">Моніторинг</h4>
-              </div>
-              <div className="space-y-3">
-                <p className="text-gray-700 text-sm">
-                  Спостереження за контейнерами
-                </p>
-                <div className="bg-orange-50 p-3 rounded">
-                  <p className="font-semibold text-orange-900 mb-2">Що вивчити:</p>
-                  <ul className="text-xs text-gray-700 space-y-1">
-                    <li>• Prometheus + Grafana</li>
-                    <li>• ELK Stack для логів</li>
-                    <li>• Docker stats і metrics</li>
-                    <li>• Health checks</li>
-                    <li>• Alerting</li>
-                  </ul>
-                </div>
-                <div className="bg-gray-100 p-2 rounded text-xs">
-                  <p className="text-gray-600">Контроль за production системами</p>
-                </div>
-              </div>
-            </div>
+    //         <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-orange-500">
+    //           <div className="flex items-center mb-4">
+    //             <span className="bg-orange-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">4</span>
+    //             <h4 className="text-xl font-bold text-orange-800">Моніторинг</h4>
+    //           </div>
+    //           <div className="space-y-3">
+    //             <p className="text-gray-700 text-sm">
+    //               Спостереження за контейнерами
+    //             </p>
+    //             <div className="bg-orange-50 p-3 rounded">
+    //               <p className="font-semibold text-orange-900 mb-2">Що вивчити:</p>
+    //               <ul className="text-xs text-gray-700 space-y-1">
+    //                 <li>• Prometheus + Grafana</li>
+    //                 <li>• ELK Stack для логів</li>
+    //                 <li>• Docker stats і metrics</li>
+    //                 <li>• Health checks</li>
+    //                 <li>• Alerting</li>
+    //               </ul>
+    //             </div>
+    //             <div className="bg-gray-100 p-2 rounded text-xs">
+    //               <p className="text-gray-600">Контроль за production системами</p>
+    //             </div>
+    //           </div>
+    //         </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-cyan-500">
-              <div className="flex items-center mb-4">
-                <span className="bg-cyan-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">5</span>
-                <h4 className="text-xl font-bold text-cyan-800">Безпека</h4>
-              </div>
-              <div className="space-y-3">
-                <p className="text-gray-700 text-sm">
-                  Захист контейнерів та образів
-                </p>
-                <div className="bg-cyan-50 p-3 rounded">
-                  <p className="font-semibold text-cyan-900 mb-2">Що вивчити:</p>
-                  <ul className="text-xs text-gray-700 space-y-1">
-                    <li>• Image scanning (Trivy, Clair)</li>
-                    <li>• Docker Secrets</li>
-                    <li>• Security best practices</li>
-                    <li>• Network policies</li>
-                    <li>• Runtime security</li>
-                  </ul>
-                </div>
-                <div className="bg-gray-100 p-2 rounded text-xs">
-                  <p className="text-gray-600">Захист від вразливостей</p>
-                </div>
-              </div>
-            </div>
+    //         <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-cyan-500">
+    //           <div className="flex items-center mb-4">
+    //             <span className="bg-cyan-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">5</span>
+    //             <h4 className="text-xl font-bold text-cyan-800">Безпека</h4>
+    //           </div>
+    //           <div className="space-y-3">
+    //             <p className="text-gray-700 text-sm">
+    //               Захист контейнерів та образів
+    //             </p>
+    //             <div className="bg-cyan-50 p-3 rounded">
+    //               <p className="font-semibold text-cyan-900 mb-2">Що вивчити:</p>
+    //               <ul className="text-xs text-gray-700 space-y-1">
+    //                 <li>• Image scanning (Trivy, Clair)</li>
+    //                 <li>• Docker Secrets</li>
+    //                 <li>• Security best practices</li>
+    //                 <li>• Network policies</li>
+    //                 <li>• Runtime security</li>
+    //               </ul>
+    //             </div>
+    //             <div className="bg-gray-100 p-2 rounded text-xs">
+    //               <p className="text-gray-600">Захист від вразливостей</p>
+    //             </div>
+    //           </div>
+    //         </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-pink-500">
-              <div className="flex items-center mb-4">
-                <span className="bg-pink-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">6</span>
-                <h4 className="text-xl font-bold text-pink-800">Service Mesh</h4>
-              </div>
-              <div className="space-y-3">
-                <p className="text-gray-700 text-sm">
-                  Управління мікросервісами
-                </p>
-                <div className="bg-pink-50 p-3 rounded">
-                  <p className="font-semibold text-pink-900 mb-2">Що вивчити:</p>
-                  <ul className="text-xs text-gray-700 space-y-1">
-                    <li>• Istio</li>
-                    <li>• Linkerd</li>
-                    <li>• Service discovery</li>
-                    <li>• Traffic management</li>
-                    <li>• Observability</li>
-                  </ul>
-                </div>
-                <div className="bg-gray-100 p-2 rounded text-xs">
-                  <p className="text-gray-600">Для складних мікросервісів</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    //         <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-pink-500">
+    //           <div className="flex items-center mb-4">
+    //             <span className="bg-pink-500 text-white text-2xl font-bold w-12 h-12 rounded-full flex items-center justify-center mr-3">6</span>
+    //             <h4 className="text-xl font-bold text-pink-800">Service Mesh</h4>
+    //           </div>
+    //           <div className="space-y-3">
+    //             <p className="text-gray-700 text-sm">
+    //               Управління мікросервісами
+    //             </p>
+    //             <div className="bg-pink-50 p-3 rounded">
+    //               <p className="font-semibold text-pink-900 mb-2">Що вивчити:</p>
+    //               <ul className="text-xs text-gray-700 space-y-1">
+    //                 <li>• Istio</li>
+    //                 <li>• Linkerd</li>
+    //                 <li>• Service discovery</li>
+    //                 <li>• Traffic management</li>
+    //                 <li>• Observability</li>
+    //               </ul>
+    //             </div>
+    //             <div className="bg-gray-100 p-2 rounded text-xs">
+    //               <p className="text-gray-600">Для складних мікросервісів</p>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
 
-          <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white p-8 rounded-lg">
-            <h4 className="text-2xl font-bold text-center mb-4">🎯 Рекомендований шлях</h4>
-            <div className="flex items-center justify-between text-center">
-              <div className="flex-1">
-                <p className="text-3xl font-bold mb-2">1</p>
-                <p className="text-sm">Практикуй Docker<br/>щодня</p>
-              </div>
-              <div className="text-3xl">→</div>
-              <div className="flex-1">
-                <p className="text-3xl font-bold mb-2">2</p>
-                <p className="text-sm">Вивчи Docker<br/>Compose досконало</p>
-              </div>
-              <div className="text-3xl">→</div>
-              <div className="flex-1">
-                <p className="text-3xl font-bold mb-2">3</p>
-                <p className="text-sm">Почни вивчати<br/>Kubernetes</p>
-              </div>
-              <div className="text-3xl">→</div>
-              <div className="flex-1">
-                <p className="text-3xl font-bold mb-2">4</p>
-                <p className="text-sm">Додай CI/CD<br/>та моніторинг</p>
-              </div>
-            </div>
-          </div>
+    //       <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white p-8 rounded-lg">
+    //         <h4 className="text-2xl font-bold text-center mb-4">🎯 Рекомендований шлях</h4>
+    //         <div className="flex items-center justify-between text-center">
+    //           <div className="flex-1">
+    //             <p className="text-3xl font-bold mb-2">1</p>
+    //             <p className="text-sm">Практикуй Docker<br/>щодня</p>
+    //           </div>
+    //           <div className="text-3xl">→</div>
+    //           <div className="flex-1">
+    //             <p className="text-3xl font-bold mb-2">2</p>
+    //             <p className="text-sm">Вивчи Docker<br/>Compose досконало</p>
+    //           </div>
+    //           <div className="text-3xl">→</div>
+    //           <div className="flex-1">
+    //             <p className="text-3xl font-bold mb-2">3</p>
+    //             <p className="text-sm">Почни вивчати<br/>Kubernetes</p>
+    //           </div>
+    //           <div className="text-3xl">→</div>
+    //           <div className="flex-1">
+    //             <p className="text-3xl font-bold mb-2">4</p>
+    //             <p className="text-sm">Додай CI/CD<br/>та моніторинг</p>
+    //           </div>
+    //         </div>
+    //       </div>
 
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8 rounded-lg text-center">
-            <div className="flex justify-center mb-4">
-              <GraduationCap className="w-20 h-20" />
-            </div>
-            <h3 className="text-3xl font-bold mb-4">Вітаємо! 🎉</h3>
-            <p className="text-xl mb-4">
-              Ви завершили курс Docker для студентів!
-            </p>
-            <p className="text-lg">
-              Тепер час практикувати, експериментувати та будувати круті проекти!
-            </p>
-            <div className="mt-6 bg-white bg-opacity-20 p-4 rounded-lg">
-              <p className="text-2xl font-bold">
-                Docker — це навичка, яка відкриває двері до DevOps! 🚀
-              </p>
-            </div>
-          </div>
-        </div>
-      )
-    }
+    //       <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8 rounded-lg text-center">
+    //         <div className="flex justify-center mb-4">
+    //           <GraduationCap className="w-20 h-20" />
+    //         </div>
+    //         <h3 className="text-3xl font-bold mb-4">Вітаємо! 🎉</h3>
+    //         <p className="text-xl mb-4">
+    //           Ви завершили курс Docker для студентів!
+    //         </p>
+    //         <p className="text-lg">
+    //           Тепер час практикувати, експериментувати та будувати круті проекти!
+    //         </p>
+    //         <div className="mt-6 bg-white bg-opacity-20 p-4 rounded-lg">
+    //           <p className="text-2xl font-bold">
+    //             Docker — це навичка, яка відкриває двері до DevOps! 🚀
+    //           </p>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   )
+    // }
   ];
 
   const nextSlide = () => {
